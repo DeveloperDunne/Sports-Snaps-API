@@ -36,8 +36,13 @@ SECRET_KEY = 'django-insecure-#1@0&2!-thba#br5dg9h#9(0gc&2688#89pf^3utmeldsdjn+b
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost',
-                 '127.0.0.1']
+                 '127.0.0.1',
+                 '8000-developerdu-sportssnaps-hqp090d211n.ws-eu115.gitpod.io',
+                 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-developerdu-sportssnaps-hqp090d211n.ws-eu115.gitpod.io'
+]
 
 # Application definition
 
