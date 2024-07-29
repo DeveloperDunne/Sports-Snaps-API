@@ -54,7 +54,7 @@ REST_AUTH_SERIALIZERS = {
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#1@0&2!-thba#br5dg9h#9(0gc&2688#89pf^3utmeldsdjn+b'
+SECRET_KEY = '0q8j1jlx9_4mi49y6fmfa5trrh)%#k(i!=tt-279oy!y*5n-5_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
