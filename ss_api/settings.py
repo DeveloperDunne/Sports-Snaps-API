@@ -54,10 +54,10 @@ REST_AUTH_SERIALIZERS = {
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0q8j1jlx9_4mi49y6fmfa5trrh)%#k(i!=tt-279oy!y*5n-5_'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ['localhost',
                  'sportssnaps-api.herokuapp.com',
@@ -156,7 +156,7 @@ if 'DEV' in os.environ:
      }
 else:
      DATABASES = {
-         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
      }
      
 
