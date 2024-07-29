@@ -60,7 +60,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ['localhost',
-                 'sportssnaps-api.herokuapp.com',
+                 'https://sportssnaps-api-4f584f2a4ad4.herokuapp.com/',
                  '127.0.0.1',
                  '8000-developerdu-sportssnaps-hqp090d211n.ws-eu115.gitpod.io',
                  ]
