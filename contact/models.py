@@ -8,7 +8,7 @@ class Contact(models.Model):
     read = models.BooleanField(default=False)
     admins_reply = models.TextField(blank=True, null=True)
 
-     class Meta:
+    class Meta:
         ordering = ["-created_at"]
 
     def __str__(self):
