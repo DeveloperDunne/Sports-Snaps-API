@@ -16,7 +16,7 @@ class PostList(generics.ListCreateAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
-    
+
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
@@ -42,10 +42,10 @@ class PostList(generics.ListCreateAPIView):
         """
         Performs creation of a new post.
         """
-        category_name = self.request.data.get('category', None)
-        if category_name:
-            category = Category.objects.get(name=category_name)
-            serializer.save(owner=self.request.user, category=category)
+        categories_name = self.request.data.get('categories', None)
+        if categories_name:
+            categories = Category.objects.get(name=categories_name)
+            serializer.save(owner=self.request.user, categories=categories)
         else:
             serializer.save(owner=self.request.user)
 
