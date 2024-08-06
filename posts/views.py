@@ -2,7 +2,7 @@ from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from ss_api.permissions import IsOwnerOrReadOnly
-from .models import Post
+from .models import Post, Category
 from .serializers import PostSerializer
 
 class PostList(generics.ListCreateAPIView):
@@ -16,24 +16,21 @@ class PostList(generics.ListCreateAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
-    
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
         DjangoFilterBackend,
     ]
-
     filterset_fields = [
         'owner__followed__owner__profile',
         'likes__owner__profile',
         'owner__profile',
+        'category',
     ]
-
     search_fields = [
-        'owner_username',
+        'owner__username',
         'title',
-]
-
+    ]
     ordering_fields = [
         'likes_count',
         'comments_count',
@@ -41,7 +38,15 @@ class PostList(generics.ListCreateAPIView):
     ]
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        """
+        Performs creation of a new post.
+        """
+        category_name = self.request.data.get('category', None)
+        if category_name:
+            category = Category.objects.get(name=category_name)
+            serializer.save(owner=self.request.user, category=category)
+        else:
+            serializer.save(owner=self.request.user)
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
