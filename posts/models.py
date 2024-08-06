@@ -13,9 +13,6 @@ class Post(models.Model):
         upload_to='images/', default='../default-image_qpztio', blank=True
     )
 
-    categories = models.ForeignKey(Category, null=True, blank=True,
-                                 on_delete=models.SET_NULL)
-
     class Meta:
         ordering = ['-created_on']
 
