@@ -2,7 +2,7 @@ from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from ss_api.permissions import IsOwnerOrReadOnly
-from .models import Post
+from .models import Post, Category
 from .serializers import PostSerializer
 
 class PostList(generics.ListCreateAPIView):
@@ -40,12 +40,12 @@ class PostList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         """
-        Performs creation of a new post.
+        New post being created.
         """
-        categories_name = self.request.data.get('categories', None)
-        if categories_name:
-            categories = Category.objects.get(name=categories_name)
-            serializer.save(owner=self.request.user, categories=categories)
+        category_name = self.request.data.get('category', None)
+        if category_name:
+            category = Category.objects.get(name=category_name)
+            serializer.save(owner=self.request.user, category=category)
         else:
             serializer.save(owner=self.request.user)
 
