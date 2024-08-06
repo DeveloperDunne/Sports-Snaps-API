@@ -2,7 +2,7 @@ from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from ss_api.permissions import IsOwnerOrReadOnly
-from .models import Post, Category
+from .models import Post
 from .serializers import PostSerializer
 
 class PostList(generics.ListCreateAPIView):
@@ -15,7 +15,7 @@ class PostList(generics.ListCreateAPIView):
     queryset = Post.objects.annotate(
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True)
-    ).order_by('-created_at')
+    ).order_by('-created_on')
 
     filter_backends = [
         filters.OrderingFilter,
@@ -35,7 +35,7 @@ class PostList(generics.ListCreateAPIView):
     ordering_fields = [
         'likes_count',
         'comments_count',
-        'likes__created_at',
+        'likes__created_on',
     ]
 
     def perform_create(self, serializer):
