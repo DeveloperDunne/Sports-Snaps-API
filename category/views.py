@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions
 from django_filters.rest_framework import DjangoFilterBackend
-from home_api.permissions import IsOwnerOrReadOnly
+from ss_api.permissions import IsOwnerOrReadOnly
 from .models import Category
 from .serializers import CategorySerializer, CategoryDetailSerializer
 
@@ -16,7 +16,7 @@ class CategoryList(generics.ListAPIView):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['name']
 
-    class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
-        queryset = Category.objects.all()
-        serializer_class = CategoryDetailSerializer
-        permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategoryDetailSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
