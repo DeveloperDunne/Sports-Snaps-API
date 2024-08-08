@@ -1,131 +1,243 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Sports Snaps - API 
 
-Welcome Carl Dunne,
+Sports Snaps API is a Django-based web application for the website [Sports Snaps](https://). The website is a social media platform designed for users to share their most liked sporting photos or moments.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+#Site Repositories
 
-## Gitpod Reminders
+[Frontend Repository](https://github.com/)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+[API Repository](https://github.com/)
 
-`python3 -m http.server`
+## Table of contents
 
-A blue button should appear to click: _Make Public_,
+- [1. Planning](#)
+- [2. Relationships & Endpoints](#)
+- [3. Admin](#)
+- [4. Testing](#)
+- [5. Installed Packages](#)
+- [6. Security](#)
+- [7. Setup](#)
+- [8. Deployment](#)
+- [9. Credits](#)
 
-Another blue button should appear to click: _Open Browser_.
+## Planning
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+### Agile Methodology
 
-A blue button should appear to click: _Make Public_,
+* All functionality and development of this project were managed using GitHub Projects. This can be found here [Github Projects](https://github.com/)
 
-Another blue button should appear to click: _Open Browser_.
+### MoSCoW
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+![MoSCoW screenshot](./README_Images/)
 
-To log into the Heroku toolbelt CLI:
+This project used the "MoSCoW" method to classify its features and requirements according to their importance towards a minimum viable product (MVP). "MoSCoW" stands for "Must have, Should have, Could have and Won't have," with each classification aiding in the prioritisation of features. This method makes sure that essential components are tackled in priority order.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Relationships & Endpoints
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+### Profile
+created_at(DateTimeField),
+updated_at(DateTimeField),
+name(CharField),
+email(EmailField),
+content(TextField),
+image(ImageField),
+facebook_link(URLField),
+twitter_link(URLField) and
+instagram_field(URLField)
 
-### Connecting your Mongo database
+### API Endpoints:
+/profiles/: to list (GET) profiles.
+/profiles/:id/: to show (GET) or update (PUT) a profile.
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+### Post
+owner(ForeignKey),
+created_at(DateTimeField),
+updated_at(DateTimeField),
+title(CharField),
+content(TextField),
+image(ImageField),
+image_filter(CharField)
+category(ForeignKey)
 
-------
+### API Endpoints:
+/posts/: to list (GET) or create (POST) posts.
+/posts/:id/: to show (GET), update (PUT) or delete (DELETE) a post.
 
-## Release History
+### Comments
+inheriting the post(ForeignKey) and owner(ForeignKey),
+it displays the content(TextField),
+created_at(DateTimeField),
+updated_at(DateTimeField)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### API Endpoints:
+/comments/: to list (GET) all comments or create (POST) a new comment.
+/comments/:id/: to show (GET) a specific comment, update (PUT) or delete (DELETE) a comment.
 
-**June 18, 2024,** Add Mongo back into template
+### Likes
+post(ForeignKey) and
+created_at(DateTimeField)
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+### API Endpoints:
+/likes/: to list (GET) or create (POST) likes.
+/likes/:id/: to show (GET) or delete (DELETE) a like.
 
-**May 28 2024:** Fix Mongo and Links installs
+### Followers defined by owner(ForeignKey),
+followed(ForeignKey),
+created_at(DateTimeField)
 
-**April 26 2024:** Update node version to 16
+### API Endpoints:
+/followers/: to list (GET) profiles.
+/followers/:id/: to show (GET) or delete (DELETE) a follow.
 
-**September 20 2023:** Update Python version to 3.9.17.
+### Category
+name(CharField)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### API Endpoints:
+/category/: to list (GET) categories.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Contact
+email(EmailField),
+subject(Charfield),
+message(TextField),
+created_at(DateTimeField),
+read(BooleanField),
+admin_response(TextField
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Admin
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Admin Panel
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+screenshot
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Deployed Admin View
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+screenshot
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Superusers
+As a Superuser one has the ability to perform the following via the admin panel:
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+CRUD Posts
+CRUD Comments
+CRUD Profiles
+CRUD Contacts
+CRUD Category
+Change Passwords
+Change emails
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Testing
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+Manual Testing for the overall functionality of the API was performed by entering test data in the backend both via Backend-and Front-end. 
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+Detailed testing documentation can be found here TESTING.MD
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+##Languages
 
-------
+Django REST Framework (Python Framework - API)
 
-## FAQ about the uptime script
+## Installed Packages
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+The following packages were installed when developing this project: 
 
-**How will this affect me?**
+To install, the following command was run in the terminal: pip3 install ...
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+cloudinary==1.40.0
+dj-database-url==0.5.0
+dj-rest-auth==2.1.9 
+Django==4.2
+django-allauth==0.44.0
+django-cloudinary-storage==0.3.0
+django-cors-headers==3.7.0
+django-filter==2.4.0
+djangorestframework==3.15.1
+djangorestframework-simplejwt==5.3.
+gunicorn==22.0.0
+Pillow==10.3.0
+psycopg2==2.9.9
+PyJWT==2.8.0
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+## Security
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### env.py File
 
-**So….?**
+API keys and databases are stored in the env.py which is not included in version control to prevent exposure.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+## Setup
 
-**Can I opt out?**
+### Setup
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+The project was developed using GitHub and GitPod.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+- Navigate to: "Repositories" and create "New".
+- Mark the following field: ✓ Public
+- Select template: "Code-Institute-Org/react-ci-template".
+- Add a Repository name then create Repository.
 
-**Anything more?**
+### Terminal Commands
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+Commits:
 
----
+- git add . 
+- git commit -m "commit message"
+- git push
 
-Happy coding!
+To run server:
+
+- python manage.py runserver 
+
+To make migrations:
+
+- python manage.py makemigrations
+- python manage.py migrate <- Applies pending migrations
+
+To add dependencies:
+
+- pip3 freeze --local > requirements.txt <-Runs the req.
+
+Creating a Superuser:
+
+- python manage.py createsuperuser
+
+Starting a new Django project:
+
+- django-admin startproject NAMEOFTHEPROJECT .
+
+Create an app:
+
+- python3 manage.py startapp NAMOFTHEAPP
+
+## Deployment
+
+The website is being hosted and deployed on Heroku:
+
+Navigate to: "Create new app" add a unique name "djangorestframework-api" and select your region. Click "Create App"
+Head over to "Settings" tab and apply the respective config VARs
+Move to "Deploy" section and select "Github" method"
+From here search for the repository name "connect", from the GitHub account.
+Hit "Connect" and "Enable Automatic Deploys" to keep the the repository in parallel to Heroku.
+Manually "Deploy Main Branch".
+
+### How to Fork
+
+To fork a repository on GitHub, follow these steps:
+
+- Log in to GitHub - or set up a new account.
+- Click on the repository name.
+- Click the Fork button in the top right corner.
+
+### How to Clone
+
+To clone a repository on GitHub, follow these steps:
+
+- Log in to GitHub - or set up a new account.
+- Find or create your repository.
+- Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+- Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+- Type 'git clone' into the terminal and paste the link you copied in step 3. Press enter.
+
+## Credits
+
+All credits and acknowledgements have been detailed in the main [Frontend Repo README document](https://github.com/).
+ 
