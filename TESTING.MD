@@ -1,5 +1,7 @@
 # JSHint Validator
+All code was put through the Code Institute Python Linter. Despite a few blank line spaces and no new lines at the end of the file, it all passed without errors.
 
+The Errors have now been fixed.
 
 # Manual testing 
 I manually tested each page and feature to enaure functionality worked. 
