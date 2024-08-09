@@ -145,7 +145,7 @@ Change emails
 
 Manual Testing for the overall functionality of the API was performed by entering test data in the backend both via Backend-and Front-end. 
 
-Detailed testing documentation can be found here TESTING.MD
+Detailed testing documentation can be found here [TESTING.MD](/TESTING.MD)
 
 # Languages and Technologies
 

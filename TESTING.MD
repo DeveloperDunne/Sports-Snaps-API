@@ -1,5 +1,10 @@
-<h1> Manual testing </h1>
+# JSHint Validator
+
+
+# Manual testing 
 I manually tested each page and feature to enaure functionality worked. 
+
+
 | Testcase                                                                     | Expected Result                                                                                             | Test Result |                                                                    |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------       |
 | **Homepage -API**                                   |                                                             |             |

@@ -4,6 +4,7 @@ from ss_api.permissions import IsOwnerOrReadOnly
 from .models import Category
 from .serializers import CategorySerializer, CategoryDetailSerializer
 
+
 class CategoryList(generics.ListAPIView):
     """
     API view to list all categories.
@@ -15,6 +16,7 @@ class CategoryList(generics.ListAPIView):
 
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['name']
+
 
 class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
