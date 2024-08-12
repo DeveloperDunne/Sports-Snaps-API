@@ -66,11 +66,11 @@ ALLOWED_HOSTS = [ os.environ.get('ALLOWED_HOST'),
                  'sportssnaps-api-4f584f2a4ad4.herokuapp.com',
                  'sportssnaps-37b7ee6411c9.herokuapp.com',
                  '127.0.0.1',
-                 '8000-developerdu-sportssnaps-hqp090d211n.ws-eu115.gitpod.io',
+                 '8000-developerdu-sportssnaps-oja0txq7t86.ws.codeinstitute-ide.net' ,
                  ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-developerdu-sportssnaps-hqp090d211n.ws-eu115.gitpod.io'
+    'https://8000-developerdu-sportssnaps-oja0txq7t86.ws.codeinstitute-ide.net'
 ]
 
 # Application definition
@@ -136,7 +136,7 @@ INSTALLED_APPS = [
 SITE_ID = 1
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-    'allauth.account.middleware.AccountMiddleware'
+    'allauth.account.middleware.AccountMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
