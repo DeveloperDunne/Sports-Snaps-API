@@ -32,7 +32,7 @@ Sports Snaps API is a Django-based web application for the website [Sports Snaps
 
 ![MoSCoW screenshot](./README_Images/admin_images/MoSCoW.webp)
 
-This project used the "MoSCoW" method to classify its features and requirements according to their importance towards a minimum viable product (MVP). "MoSCoW" stands for "Must have, Should have, Could have and Won't have," with each classification aiding in the prioritisation of features. This method makes sure that essential components are tackled in priority order.
+This project used the "MoSCoW" method to classify features and requirements according to their importance towards a minimum viable product (MVP). "MoSCoW" stands for "Must have, Should have, Could have and Won't have," with each classification aiding in the prioritization of features. This method makes sure that essential components are tackled in priority order.
 
 # Admin
 
@@ -45,7 +45,7 @@ This project used the "MoSCoW" method to classify its features and requirements 
 ![Admin Panel screenshot](./README_Images/admin_images/admin-site.webp)
 
 ## Superusers
-Superusers have the ability to perform the following via the admin panel:
+Superusers can perform the following via the admin panel:
 
 CRUD Posts
 CRUD Comments
@@ -143,7 +143,7 @@ Change emails
 
 # Testing
 
-Manual Testing for the overall functionality of the API was performed by entering test data in the backend both via Backend-and Front-end. 
+Manual Testing for the overall functionality of the API was performed by entering test data in the backend both via Backend and Front-end. 
 
 Detailed testing documentation can be found here [TESTING.MD](/TESTING.MD)
 
@@ -165,9 +165,9 @@ To install, the following command was run in the terminal: pip3 install ...
 - dj-rest-auth==2.1.9
 - Django==5.0.7
 - django-allauth==0.50.0
-- django-cloudinary-storage==0.3.0
+- Django-Cloudinary-storage==0.3.0
 - django-cors-headers==4.4.0
-- django-filter==24.2
+- Django-filter==24.2
 - djangorestframework==3.15.2
 - - djangorestframework-simplejwt==5.3.1
 - gunicorn==22.0.0
@@ -190,7 +190,7 @@ API keys and databases are stored in the env.py which is not included in version
 
 ### GitHub
 
-The project was developed using GitHub and coded via tehe IDE GitPod.
+The project was developed using GitHub and coded via the IDE GitPod.
 
 - Navigate to: "Repositories" and create "New".
 - Mark the following field: ✓ Public
@@ -235,10 +235,10 @@ Create an app:
 The website is being hosted and deployed on Heroku:
 
 Navigate to: "Create new app" add a unique name "djangorestframework-api" and select your region. Click "Create App"
-Head over to "Settings" tab and apply the respective config VARs
-Move to "Deploy" section and select "Github" method"
+Head over to the "Settings" tab and apply the respective config VARs
+Move to the "Deploy" section and select "Github" method"
 From here search for the repository name "connect", from the GitHub account.
-Hit "Connect" and "Enable Automatic Deploys" to keep the the repository in parallel to Heroku.
+Hit "Connect" and "Enable Automatic Deploys" to keep the repository in parallel to Heroku.
 Manually "Deploy Main Branch".
 
 ## How to Fork
@@ -261,5 +261,5 @@ To clone a repository on GitHub, follow these steps:
 
 # Credits
 
-All credits and acknowledgements have been detailed in the main [Frontend Repo README document](https://github.com/DeveloperDunne/sports-snaps_frontend/blob/main/README.md).
+All credits and acknowledgments have been detailed in the main [Frontend Repo README document](https://github.com/DeveloperDunne/sports-snaps_frontend/blob/main/README.md).
  
