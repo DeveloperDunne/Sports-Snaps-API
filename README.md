@@ -58,6 +58,8 @@ Change emails
 
 # Relationships and Endpoints
 
+![ERDscreenshot](./README_Images/admin_images/ERD.webp)
+
 ## Profile
 - created_at(DateTimeField),
 - updated_at(DateTimeField),
@@ -82,7 +84,6 @@ Change emails
 - title(CharField),
 - content(TextField),
 - image(ImageField),
-- image_filter(CharField)
 - category(ForeignKey)
 
 ### Endpoints:
