@@ -113,7 +113,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
+    
 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
@@ -152,6 +152,7 @@ WSGI_APPLICATION = 'ss_api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
