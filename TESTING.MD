@@ -145,3 +145,9 @@ I manually tested each page and feature to enaure functionality worked.
 | DELETE /contact/<id>/ Not Owner           | 403 - Forbidden: This user is not authorized to delete.                | Pass✅       |
 | DELETE /contact/<id>/ Unauthenticated     | 403 - Forbidden: This user is not authenticated.                       | Pass✅       |
 |                                            |          
+
+# Bug
+
+There was one error which I was unable to fix and even a few tutors couldnt manage to fix. When running the server in my API the termial asked for me to include 'allauth.account.middleware.AccountMiddleware' into Middleware. Unfortunately this caused the API to not deploy correctly in Heroku therefore I had to comment it out for deployment and then uncomment it and save if I required access to the admin Panel.
+
+![API Bug screenshot](./README_Images/admin_images/APIbug.webp)

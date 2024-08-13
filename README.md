@@ -146,6 +146,10 @@ Change emails
 
 Manual Testing for the overall functionality of the API was performed by entering test data in the backend both via Backend and Front-end. 
 
+There was one error which I was unable to fix and even a few tutors couldnt manage to fix. When running the server in my API the termial asked for me to include 'allauth.account.middleware.AccountMiddleware' into Middleware. Unfortunately this caused the API to not deploy correctly in Heroku therefore I had to comment it out for deployment and then uncomment it and save if I required access to the admin Panel.
+
+Please see testing for a breakdown of issue.
+
 Detailed testing documentation can be found here [TESTING.MD](/TESTING.MD)
 
 # Languages and Technologies
