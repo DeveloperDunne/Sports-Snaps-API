@@ -67,6 +67,7 @@ ALLOWED_HOSTS = [ os.environ.get('ALLOWED_HOST'),
                  'sportssnaps-37b7ee6411c9.herokuapp.com',
                  '127.0.0.1',
                  '8000-developerdu-sportssnaps-oja0txq7t86.ws.codeinstitute-ide.net' ,
+                 '8000-developerdu-sportssnaps-6lehkmv6utm.ws.codeinstitute-ide.net',
                  ]
 
 CSRF_TRUSTED_ORIGINS = [
