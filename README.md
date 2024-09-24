@@ -210,41 +210,37 @@ Commits:
 - git commit -m "commit message"
 - git push
 
-To run server:
+To run the server locally (Debug = True), the following command ran:
+- `python manage.py runserver` <- Loads the website on the in-built Terminal.
 
-- python manage.py runserver 
+During development migrations to the database were made.
+To make migrations the following commands ran:
+- `python manage.py makemigrations` <- Creates a new database migration
+- `python manage.py migrate` <- Applies pending migrations
 
-To make migrations:
+To create or update Requirements.txt file the following commands ran:
+- `pip3 freeze --local > requirements.txt`  <-Runs the req.
+- `pip install -r requirements.txt` <- Install req.
 
-- python manage.py makemigrations
-- python manage.py migrate <- Applies pending migrations
+To create a Superuser the following command ran (from Heroku terminal): 
+- `python manage.py createsuperuser` (username->email->password1->password2) <- Creates a Superuser
 
-To add dependencies:
+To create a new Django project, in the currenct directory, the followig command ran:
+- `django-admin startproject NAMEOFTHEPROJECT .` <- Starts the project
 
-- pip3 freeze --local > requirements.txt <-Runs the req.
-
-Creating a Superuser:
-
-- python manage.py createsuperuser
-
-Starting a new Django project:
-
-- django-admin startproject NAMEOFTHEPROJECT .
-
-Create an app:
-
-- python3 manage.py startapp NAMOFTHEAPP
+To create the app the following command ran:
+- `python3 manage.py startapp NAMOFTHEAPP` <- Creates a folder for the app withing the project
 
 # Deployment
 
 The website is being hosted and deployed on Heroku:
-
-Navigate to: "Create new app" add a unique name "djangorestframework-api" and select your region. Click "Create App"
-Head over to the "Settings" tab and apply the respective config VARs
-Move to the "Deploy" section and select "Github" method"
-From here search for the repository name "connect", from the GitHub account.
-Hit "Connect" and "Enable Automatic Deploys" to keep the repository in parallel to Heroku.
-Manually "Deploy Main Branch".
+- Navigate to: "Create new app" add a unique name i.e "djangorestframework-api" and select your region. Click "Create App"
+- Head over to "Settings" tab and apply the respective config VARs
+- Move to "Deploy" section and select "Github" method"
+- From here search for the repository name "connect", from the GitHub account.
+- Hit "Connect" and "Enable Automatic Deploys" to keep the the repository in parallel to Heroku.
+- Manually "Deploy Main Branch".
+- Upon successful deployment, retrieve the link for the mock terminal.
 
 ## How to Fork
 
