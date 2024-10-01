@@ -71,7 +71,8 @@ ALLOWED_HOSTS = [ os.environ.get('ALLOWED_HOST'),
                  ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-developerdu-sportssnaps-oja0txq7t86.ws.codeinstitute-ide.net'
+    'https://8000-developerdu-sportssnaps-oja0txq7t86.ws.codeinstitute-ide.net',
+    'https://8000-developerdu-sportssnaps-6lehkmv6utm.ws.codeinstitute-ide.net'
 ]
 
 # Application definition
