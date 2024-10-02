@@ -19,7 +19,7 @@ Sports Snaps API is a Django-based web application for the website [Sports Snaps
 - [6. Installed Packages](#installed-packages)
 - [7. Security](#security)
 - [8. Setup](#setup)
-- [9. Deployment](#deployment)
+- [9. Deployment](#heroku-deployment)
 - [10. Credits](#credits)
 
 # Planning
@@ -231,16 +231,33 @@ To create a new Django project, in the currenct directory, the followig command 
 To create the app the following command ran:
 - `python3 manage.py startapp NAMOFTHEAPP` <- Creates a folder for the app withing the project
 
-# Deployment
+## Heroku Deployment
 
-The website is being hosted and deployed on Heroku:
-- Navigate to: "Create new app" add a unique name i.e "djangorestframework-api" and select your region. Click "Create App"
-- Head over to "Settings" tab and apply the respective config VARs
-- Move to "Deploy" section and select "Github" method"
-- From here search for the repository name "connect", from the GitHub account.
-- Hit "Connect" and "Enable Automatic Deploys" to keep the the repository in parallel to Heroku.
-- Manually "Deploy Main Branch".
-- Upon successful deployment, retrieve the link for the mock terminal.
+This project is deployed on Heroku, a cloud platform service that enables deployment for web applications. The deployment process includes the following steps:
+
+### Initial Setup
+
+1. **Create a Heroku Account**: Sign up for a Heroku account at [Heroku's website](https://www.heroku.com/).
+
+2. **Install Heroku CLI**: Download and install the Heroku Command Line Interface (CLI) to interact with Heroku from your local machine.
+
+### Preparing the Application
+
+1. **Procfile**: Create a `Procfile` in your project root directory. This file tells Heroku how to run your application.
+2. **Requirements.txt**: Ensure you have a `requirements.txt` file listing all project dependencies.
+3. **Config Vars**: Set up necessary configuration variables in Heroku (i.e `SECRET_KEY`, `DATABASE URL`).
+
+### Deployment
+
+1. **Create a Heroku App**: Use the Heroku CLI to create a new app.
+2. **Add Buildpacks**: If necessary, add the correct buildpacks via the Heroku dashboard or CLI.
+3. **Deploy**: Push your code to Heroku either by connecting your GitHub repository to Heroku or using the Heroku CLI to deploy your application.
+4. **Database Migration (if applicable)**: Run database migrations using the Heroku CLI.
+
+### Final Steps
+
+1. **Enable the Web Dyno**: Make sure the web dyno is up and running after deployment.
+2. **Open the App**: You can open your application from the Heroku dashboard or using the CLI command `heroku open`.
 
 ## How to Fork
 
