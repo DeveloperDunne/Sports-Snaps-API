@@ -249,10 +249,25 @@ This project is deployed on Heroku, a cloud platform service that enables deploy
 
 ### Deployment
 
-1. **Create a Heroku App**: Use the Heroku CLI to create a new app.
-2. **Add Buildpacks**: If necessary, add the correct buildpacks via the Heroku dashboard or CLI.
-3. **Deploy**: Push your code to Heroku either by connecting your GitHub repository to Heroku or using the Heroku CLI to deploy your application.
-4. **Database Migration (if applicable)**: Run database migrations using the Heroku CLI.
+1. Log in to Heroku or create an account.
+
+2. On the main page click Create New App.
+
+3. Select your region.
+
+4. Click on the Create App button.
+
+5. The next page is the project’s Deploy Tab, click the Settings Tab.
+
+6. Go to the Deploy tab.
+
+7. Select Github as your deployment method.
+
+8. Connect to GitHub.
+
+9. Search your repository name and connect.
+
+10. Click either Enable Automatic Deploys for automatic deployment when you push updates to GitHub or manual to do this manually.
 
 ### Final Steps
 
